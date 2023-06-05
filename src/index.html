@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cebollo Camp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
+          integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 18px;
+            line-height: 2em;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+            color: #FFBF00;
+        }
+
+        a:hover {
+            color: #9400FF;
+        }
+
+        h1, h2, p, i, address, .tm-text-white {
+            color: white;
+        }
+
+        .tm-link-white {
+            color: white;
+        }
+
+        .tm-footer {
+            color: #999999;
+            text-align: center;
+        }
+
+        .tm-container-fluid {
+            width: 100%;
+            max-width: 970px;
+            box-sizing: border-box;
+            margin: 0 auto;
+            padding: 60px 15px;
+        }
+
+        .tm-site-header {
+            height: 470px;
+        }
+
+        .tm-flex-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tm-about,
+        .tm-contact {
+            display: flex;
+        }
+
+        .tm-contact {
+            flex-direction: row-reverse;
+        }
+
+        .tm-about > div {
+            flex: 1 1;
+        }
+
+        .tm-contact-form-container,
+        .tm-contact-info {
+            width: 40%;
+        }
+
+        .tm-contact-info {
+            padding-top: 20px;
+        }
+
+        .tm-contact-header {
+            width: 20%;
+        }
+
+        .tm-contact-header {
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        .tm-contact {
+            padding: 50px 20px;
+        }
+
+        .tm-contact > div {
+            padding-left: 34px;
+            padding-right: 34px;
+            box-sizing: border-box;
+        }
+
+        input,
+        textarea,
+        button {
+            display: block;
+        }
+
+        input,
+        textarea {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1rem;
+            background: transparent;
+            border: 0;
+            border-bottom: 1px solid white;
+            color: white;
+            padding: 15px 0;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            width: 100%;
+        }
+
+        ::-webkit-input-placeholder {
+            color: white;
+        }
+
+        /* Edge */
+        :-ms-input-placeholder {
+            color: white;
+        }
+
+        /* Internet Explorer 10-11 */
+        ::placeholder {
+            color: white;
+        }
+
+        .tm-right {
+            margin-right: 0;
+            margin-left: auto;
+        }
+
+        .tm-btn-submit {
+            background: none;
+            color: white;
+            font-size: 1rem;
+            border: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tm-btn-submit:hover {
+            color: #000000;
+        }
+
+        .tm-social-link {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tm-social-link i {
+            color: #FFBF00;
+            transition: all 0.3s ease;
+        }
+
+        .tm-social-link:hover i.fa-facebook {
+            color: #3b5998;
+        }
+
+        .tm-social-link:hover i.fa-twitter {
+            color: #00acee;
+        }
+
+        .tm-social-link:hover i.fa-instagram {
+            color: #3f729b;
+        }
+
+        .tm-flex {
+            display: flex;
+        }
+
+        address {
+            font-style: normal;
+        }
+
+        .filters-button-group {
+            text-align: right;
+            padding: 0;
+            margin: 0;
+        }
+
+        .filters-button-group li {
+            display: inline-block;
+            list-style: none;
+            margin-left: 40px;
+        }
+
+        .filters-button-group li a.active {
+            color: #6EC8B7;
+        }
+
+        .tm-gallery {
+            margin: -10px;
+        }
+
+        .tm-gallery-item {
+            border-radius: 12px;
+            margin: 10px;
+            overflow: hidden;
+        }
+
+        .tm-gallery-item a {
+            display: block;
+            line-height: 0;
+        }
+
+        .tm-gallery-item img {
+            width: 220px;
+            height: 220px;
+        }
+
+        @media (max-width: 940px) {
+            .filters-button-group {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .tm-contact {
+                flex-direction: column;
+            }
+
+            .tm-contact-form-container,
+            .tm-contact-info,
+            .tm-contact-header {
+                width: 100%;
+            }
+
+            .tm-contact-form-container {
+                margin-bottom: 20px;
+            }
+
+            .tm-contact-info {
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 545px) {
+            .tm-about {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 489px) {
+            .tm-gallery-item {
+                width: 48%;
+                margin: 1%;
+                height: auto;
+            }
+
+            .tm-gallery-item img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .tm-p-50 {
+            padding: 50px;
+        }
+
+        .tm-mb-0 {
+            margin-bottom: 0;
+        }
+
+        .tm-mb-30 {
+            margin-bottom: 30px
+        }
+
+        .tm-mb-40 {
+            margin-bottom: 40px;
+        }
+
+        .tm-mb-50 {
+            margin-bottom: 50px;
+        }
+
+        .tm-mb-80 {
+            margin-bottom: 80px;
+        }
+
+        .tm-bgcolor-1 {
+            background-color: #9400FF;
+        }
+
+        .tm-bgcolor-2 {
+            background-color: #6EC8B7;
+        }
+
+        .tm-bgcolor-3 {
+            background-color: #FFBF00;
+        }
+
+        .tm-border-rounded {
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="tm-container-fluid">
+    <section class="tm-site-header tm-flex-center tm-mb-50 tm-bgcolor-1 tm-border-rounded">
+        <i class="fas fa-seedling fa-3x"></i>
+        <h1>Cebollo Camp</h1>
+    </section>
+
+    <section class="tm-about tm-mb-80 tm-p-50 tm-bgcolor-2 tm-border-rounded">
+        <div class="tm-about-header tm-flex-center">
+            <i class="fas fa-users fa-2x"></i>
+            <h2>Sobre nosotros</h2>
+        </div>
+        <div class="tm-about-text">
+            <p class="tm-mb-40">Cebollo Camp<sup class="fa-solid fa-trademark"></sup> es una sencilla página sobre las
+                virtudes de las cebollas, con o sin tortilla.</p>
+            <p class="tm-mb-0">Por favor, ayuda a esta página hablando de ella a tus amigos. Y no olvides añadir cebolla
+                a todos tus platos.</p>
+        </div>
+    </section>
+
+    <div class="tm-gallery-section tm-mb-80">
+        <ul class="filters-button-group tm-mb-40">
+            <li><a href="#" data-filter=".planta">Plantas</a></li>
+            <li><a href="#" data-filter=".variedad">Variedades</a></li>
+            <li><a href="#" data-filter=".plato">Platos</a></li>
+            <li><a href="#" class="active" data-filter="*">Todo</a></li>
+        </ul>
+        <div class="tm-gallery">
+            <div class="tm-gallery-item planta">
+                <a href="https://www.agro.basf.es/Pictures/Nuevas-AgroPortal/Cultivos/CEBOLLA_1540x866.png">
+                    <img src="https://www.agro.basf.es/Pictures/Nuevas-AgroPortal/Cultivos/CEBOLLA_1540x866.png"
+                         style="object-fit:cover" alt="Cebollas" class="img-fluid"/>
+                </a>
+            </div>
+            <div class="tm-gallery-item plato">
+                <a href="https://i.pinimg.com/originals/60/c1/db/60c1db7d793aaa02efe03b87c817fa86.jpg">
+                    <img src="https://i.pinimg.com/originals/60/c1/db/60c1db7d793aaa02efe03b87c817fa86.jpg"
+                         style="object-fit:cover" alt="Cebollas" class="img-fluid"/>
+                </a>
+            </div>
+            <div class="tm-gallery-item variedad">
+                <a href="https://eromay.com/wp-content/uploads/2019/05/cebollas.jpg">
+                    <img src="https://eromay.com/wp-content/uploads/2019/05/cebollas.jpg" style="object-fit:cover"
+                         alt="Cebollas" class="img-fluid"/>
+                </a>
+            </div>
+            <div class="tm-gallery-item plato">
+                <a href="https://2.bp.blogspot.com/-dlYzcJpJ3wk/TbXaoq2NPII/AAAAAAAAAps/pPsMuKyIV8s/s1600/tortilla_cebolla_1_e-cocina.jpg">
+                    <img src="https://2.bp.blogspot.com/-dlYzcJpJ3wk/TbXaoq2NPII/AAAAAAAAAps/pPsMuKyIV8s/s1600/tortilla_cebolla_1_e-cocina.jpg" style="object-fit:cover" alt="Cebollas" class="img-fluid"/>
+                </a>
+            </div>
+            <div class="tm-gallery-item variedad">
+                <a href="https://frutasyverduras.info/wp-content/uploads/2019/06/cebolla.jpg">
+                    <img src="https://frutasyverduras.info/wp-content/uploads/2019/06/cebolla.jpg"
+                         style="object-fit:cover" alt="Cebollas" class="img-fluid"/>
+                </a>
+            </div>
+            <div class="tm-gallery-item plato">
+                <a href="https://www.comedera.com/wp-content/uploads/2021/08/sopa-de-cebolla.jpg">
+                    <img src="https://www.comedera.com/wp-content/uploads/2021/08/sopa-de-cebolla.jpg"
+                         style="object-fit:cover" alt="Cebollas" class="img-fluid"/>
+                </a>
+            </div>
+            <div class="tm-gallery-item planta">
+                <a href="https://www.herbal-supplement-resource.com/wp-content/uploads/2014/01/onion_allium_cepa-img-e1474367061285.jpg">
+                    <img src="https://www.herbal-supplement-resource.com/wp-content/uploads/2014/01/onion_allium_cepa-img-e1474367061285.jpg"
+                         style="object-fit:cover" alt="Cebollas" class="img-fluid"/>
+                </a>
+            </div>
+            <div class="tm-gallery-item variedad">
+                <a href="https://d3qz1qhhp9wxfa.cloudfront.net/growingproduce/wp-content/uploads/2019/11/onions-2019-feature.jpg">
+                    <img src="https://d3qz1qhhp9wxfa.cloudfront.net/growingproduce/wp-content/uploads/2019/11/onions-2019-feature.jpg"
+                         style="object-fit:cover" alt="Cebollas" class="img-fluid"/>
+                </a>
+            </div>
+            <div class="tm-gallery-item planta">
+                <a href="https://2.bp.blogspot.com/-6xQ6WWY_iUg/UzMSwLbXOlI/AAAAAAAAAdk/rNW3N_Cc358/s1600/flores+de+cebolla.jpg">
+                    <img src="https://2.bp.blogspot.com/-6xQ6WWY_iUg/UzMSwLbXOlI/AAAAAAAAAdk/rNW3N_Cc358/s1600/flores+de+cebolla.jpg"
+                         style="object-fit:cover" alt="Cebollas" class="img-fluid"/>
+                </a>
+            </div>
+            <div class="tm-gallery-item plato">
+                <a href="https://mylatinatable.com/wp-content/uploads/2016/01/foto-heroe-1024x693.jpg">
+                    <img src="https://mylatinatable.com/wp-content/uploads/2016/01/foto-heroe-1024x693.jpg" style="object-fit:cover" alt="Cebollas" class="img-fluid"/>
+                </a>
+            </div>
+            <div class="tm-gallery-item variedad planta">
+                <a href="https://viaorganica.org/wp-content/uploads/Cosecha-de-cebolla.-Por-Jebadiah-Fisher-Garden-Seed.jpg">
+                    <img src="https://viaorganica.org/wp-content/uploads/Cosecha-de-cebolla.-Por-Jebadiah-Fisher-Garden-Seed.jpg"
+                         style="object-fit:cover" alt="Cebollas" class="img-fluid"/>
+                </a>
+            </div>
+            <div class="tm-gallery-item plato">
+                <a href="https://milrecetas.net/wp-content/uploads/2015/12/Encurtido-de-cebolla-1-2048x1356.jpg">
+                    <img src="https://milrecetas.net/wp-content/uploads/2015/12/Encurtido-de-cebolla-1-2048x1356.jpg" style="object-fit:cover" alt="Cebollas" class="img-fluid"/>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <section class="tm-contact tm-mb-50 tm-bgcolor-3 tm-border-rounded">
+        <div class="tm-contact-header tm-flex-center">
+            <i class="fas fa-map-pin fa-3x"></i>
+            <h2>Contacto</h2>
+        </div>
+        <div class="tm-contact-info">
+            <address class="tm-mb-30">Casa Cebollo<br/> Tabacalera<br> Málaga</address>
+            <div class="tm-text-white tm-mb-40">Tel: <a href="tel:987654321" class="tm-link-white">987-654-321</a>
+            </div>
+            <div class="tm-flex">
+                <a href="https://facebook.com" class="tm-social-link"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" class="tm-social-link"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" class="tm-social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="tm-contact-form-container">
+            <form id="contact-form" action="" method="POST" class="tm-contact-form">
+                <label>
+                    <input type="text" name="nombre" placeholder="nombre" required=""/>
+                </label>
+                <label>
+                    <input type="email" name="correo" placeholder="correo" required=""/>
+                </label>
+                <label>
+                    <textarea rows="5" name="mensaje" class="tm-mb-30" placeholder="mensaje" required=""></textarea>
+                </label>
+                <button type="submit" class="tm-right tm-btn-submit">enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="tm-footer">Copyleft 2023 · Cebollo Camp</footer>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js"
+        integrity="sha512-kfs3Dt9u9YcOiIt4rNcPUzdyNNO9sVGQPiZsub7ywg6lRW5KuK1m145ImrFHe3LMWXHndoKo2YRXWy8rnOcSKg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"
+        integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"
+        integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(function () {
+        var $gallery = $(".tm-gallery").isotope({
+            itemSelector: ".tm-gallery-item",
+            layoutMode: "fitRows"
+        });
+
+        $gallery.imagesLoaded().progress(function () {
+            $gallery.isotope("layout");
+        });
+
+        $(".filters-button-group").on("click", "a", function (e) {
+            e.preventDefault();
+            var filterValue = $(this).attr("data-filter");
+            $gallery.isotope({filter: filterValue});
+            $('.filters-button-group a').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        $('.tm-gallery').magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            gallery: {enabled: true}
+        });
+    });
+</script>
+</body>
+</html>
